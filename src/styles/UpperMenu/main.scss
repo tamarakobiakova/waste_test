@@ -1,0 +1,41 @@
+.upper-menu {
+  background-color: #000; // black background
+  padding: 30px 0;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: white;
+  border-bottom: 2px solid #e0e0e0;
+
+  .steps-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 20px;
+  }
+
+  .step {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .arrow {
+    font-size: 16px;
+    color: #005baa;  // Blue color for arrows to match the website
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 5px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: #bbbbbb;
+  }
+}

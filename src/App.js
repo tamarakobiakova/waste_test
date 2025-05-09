@@ -1,4 +1,4 @@
-import "./styles.css";
+/*import "./styles.css";
 
 export default function App() {
   return (
@@ -8,3 +8,20 @@ export default function App() {
     </div>
   );
 }
+*/
+import UpperMenu from "./components/UpperMenu/UpperMenu";
+import SkipSelector from "./components/SkipSelector/SkipSelector";
+import "./styles/styles.scss";
+import skips from "./sampledata/skips";
+
+function App() {
+  return (
+    <>
+      <UpperMenu />
+      <SkipSelector skips={skips} />
+    </>
+  );
+  // return <div>Hi1</div>;
+}
+
+export default App;
