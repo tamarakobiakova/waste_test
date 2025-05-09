@@ -2,25 +2,29 @@ import React, { useState } from "react";
 import "../../styles/SkipSelector/main.scss";
 
 const SkipSelector = ({ skips }) => {
+  console.log(skips);
   const [selectedId, setSelectedId] = useState(null);
+  const [price, setPrice] = useState(null);
+  const [size, setSize] = useState(null);
+  const [hireDays, setHireDays] = useState(null);
 
   return (
     <div className="skip-selector">
-      <h1 className="title">Choose Your Skip Size</h1>
-      <p className="subtitle">
-        Select the skip size that best suits your needs
-      </p>
-
       <div className="skip-grid">
         {skips.map((skip) => (
           <div
             key={skip.id}
             className={`skip-card ${selectedId === skip.id ? "selected" : ""}`}
-            onClick={() => setSelectedId(skip.id)}
+            onClick={() => {
+              setSelectedId(skip.id);
+              setPrice(skip.price_before_vat);
+              setSize(skip.size);
+              setHireDays(skip.hire_period_days);
+            }}
           >
             <div className="image-wrapper">
               <img
-                src={`/${skip.size}-yard.png`}
+                src={`https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/${skip.size}-yarder-skip.jpg`}
                 alt={`${skip.size} Yard Skip`}
               />
               <div className="badge">{skip.size} Yards</div>
@@ -40,8 +44,22 @@ const SkipSelector = ({ skips }) => {
       </div>
 
       <div className="footer">
-        <button className="button secondary">Back</button>
-        <button className="button primary">Continue</button>
+        <div className="selected-info-bottom">
+          {size ? (
+            <div className="footer-info">
+              <text className="price-selected">£{price}</text>{" "}
+              <text className="label-size">
+                {size}-Yard Skip | {hireDays} day hire
+              </text>
+            </div>
+          ) : (
+            "Not selected..."
+          )}
+        </div>
+        <div className="buttons">
+          <button className="button secondary">Back</button>
+          <button className="button primary">Continue</button>
+        </div>
       </div>
     </div>
   );
