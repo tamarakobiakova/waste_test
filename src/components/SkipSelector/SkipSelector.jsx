@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import WarningBadgeGroup from "../WarningBadgeGroup/WarningBadgeGroup";
+import {
+  getImageUrl as getImageUrl,
+  steps as steps,
+} from "../../utils/constants";
 import "../../styles/SkipSelector/main.scss";
 
 const SkipSelector = ({ skips }) => {
@@ -25,7 +29,7 @@ const SkipSelector = ({ skips }) => {
           >
             <div className="image-wrapper">
               <img
-                src={`https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/${skip.size}-yarder-skip.jpg`}
+                src={getImageUrl(skip.size)}
                 alt={`${skip.size} Yard Skip`}
               />
               <div className="badge">{skip.size} Yards </div>
