@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import WarningBadgeGroup from "../WarningBadgeGroup/WarningBadgeGroup";
 import "../../styles/SkipSelector/main.scss";
 
 const SkipSelector = ({ skips }) => {
@@ -27,8 +28,10 @@ const SkipSelector = ({ skips }) => {
                 src={`https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/${skip.size}-yarder-skip.jpg`}
                 alt={`${skip.size} Yard Skip`}
               />
-              <div className="badge">{skip.size} Yards</div>
+              <div className="badge">{skip.size} Yards </div>
+              <WarningBadgeGroup skip={skip} />
             </div>
+
             <div className="details">
               <h2>{skip.size} Yard Skip</h2>
               <p>{skip.hire_period_days} day hire period</p>
@@ -46,16 +49,17 @@ const SkipSelector = ({ skips }) => {
       <div className="footer">
         <div className="selected-info-bottom">
           {size ? (
-            <div className="footer-info">
-              <text className="price-selected">£{price}</text>{" "}
-              <text className="label-size">
+            <>
+              <span className="price-selected">£{price}</span>
+              <span className="label-size">
                 {size}-Yard Skip | {hireDays} day hire
-              </text>
-            </div>
+              </span>
+            </>
           ) : (
-            "Not selected..."
+            <span className="label-size">Select a skip to continue</span>
           )}
         </div>
+
         <div className="buttons">
           <button className="button secondary">Back</button>
           <button className="button primary">Continue</button>

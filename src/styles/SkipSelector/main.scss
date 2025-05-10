@@ -1,154 +1,211 @@
 .skip-selector {
-   padding: 2rem;
-   color: #fff;
-    background-color: #121212;
-    min-height: 100vh;
-    font-family: sans-serif;
-     margin-bottom: 100px;  
-  }
-  
-  .skip-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .skip-card {
-    color: white;
-    background: #1e1e1e;
-    border: 2px solid transparent;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.3s;
-    overflow: hidden;
-  }
-  
-  .skip-card.selected {
+  padding: 2rem;
+  padding-bottom: 140px; // 👈 место под fixed footer
+  background-color: #121212;
+  min-height: 100vh;
+  font-family: sans-serif;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.skip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.skip-card {
+  margin-bottom: 3rem; // 
+  background: #1e1e1e;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  overflow: hidden;
+
+  &.selected {
     border-color: #007bff;
     box-shadow: 0 0 0 2px #007bff44;
   }
-  
-  .image-wrapper {
-    position: relative;
-    height: 180px;
-    overflow: hidden;
-    background: #333;
-  }
-  
-  .image-wrapper img {
+}
+
+.image-wrapper {
+  position: relative;
+  height: 180px;
+  background: #333;
+
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
   }
-  
-  .badge {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: #007bff;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: bold;
-  }
-  
-  .details {
-    padding: 1rem;
-  }
-  
-  .details h2 {
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #007bff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.details {
+  padding: 1rem;
+
+  h2 {
     margin: 0 0 0.5rem;
   }
-  
+
   .price {
     color: #00d78e;
     font-size: 2rem;
-   margin-top: 1rem;
-   margin-bottom: 1rem;
-   font-weight: bold;
-   letter-spacing: 1px;
-  }
-
-  .price-selected{
-    letter-spacing: 3px;
-    color: #00d78e;
-    font-size: 4rem;
-   margin-top: 1rem;
-   margin-bottom: 1rem;
-   font-weight: bold;
-  }
-
-  .vertical-line {
-    position: absolute;  /* Позиционирование внутри родителя */
-    width: 2px;          /* Толщина линии */
-    height: 100%;         /* Высота линии по высоте родительского элемента */
-    background-color: #333; /* Цвет линии */
-    left: 0;      
-  }
-  
-  .button {
-    padding: 0.6rem 1rem;
-    border: none;
-    cursor: pointer;
+    margin: 1rem 0;
     font-weight: bold;
-    border-radius: 6px;
+    letter-spacing: 1px;
   }
-  
-  .button.primary {
+}
+
+.button {
+  padding: 0.6rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 6px;
+
+  &.primary {
     background: #007bff;
     color: white;
   }
-  
-  .button.secondary {
+
+  &.secondary {
     background: #444;
     color: white;
     margin-right: 1rem;
   }
-  
-  .button.selected-btn {
+
+  &.selected-btn {
     background: #00d78e;
     color: #000;
     cursor: default;
   }
-  
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1e1e1e;
+  color: white;
+  padding: 16px;
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+
+  .selected-info-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+
+    .price-selected {
+      letter-spacing: 2px;
+      color: #00d78e;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .label-size {
+      font-size: 1rem;
+      letter-spacing: 1px;
+      color: #aaa;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+
+    button {
+      min-width: 100px;
+    }
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #1e1e1e;
+  color: white;
+  padding: 16px;
+  z-index: 1000;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+
+  .selected-info-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .price-selected {
+      font-size: 2rem;
+      color: #00d78e;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .label-size {
+      font-size: 0.9rem;
+      color: #aaa;
+      letter-spacing: 1px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+
+    button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
   .footer {
-    display: flex;
-    //justify-content: flex-end;
-    margin-top: 2rem;
-      position: fixed;
-      bottom: 0;
-      left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+
+    .selected-info-bottom {
+      align-items: center;
+    }
+
+    .buttons {
       width: 100%;
-      background-color: #1e1e1e;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      z-index: 1000;
-     // display: flex;
-     // justify-content: flex-start;     /* Центрирование содержимого внутри div */
-      align-items: center;   
-      justify-content: space-between; 
+
+      button {
+        flex: 1;
+      }
+    }
   }
-
-
-  
-  .selected-info-bottom{
-    margin-left: 15px;
-    display: flex;
-    justify-content: flex-start;  /* Выровнять по левому краю */
-    align-items: center;          /* Выровнять по центру по вертикали */
-  }
-
-  .buttons{
-    display: flex;
-  }
-
-  .label-size{
-    margin: 15px;
-    align-self: center;     
-    bottom: 3px;
-    position: relative;
-    letter-spacing: 2px;
-  }
-
-  
+}
