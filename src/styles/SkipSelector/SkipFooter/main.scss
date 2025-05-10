@@ -1,0 +1,19 @@
+.selected-info-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  
+    .price-selected {
+      font-size: 2rem;
+      color: #00d78e;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+  
+    .label-size {
+      font-size: 0.9rem;
+      color: #aaa;
+      letter-spacing: 1px;
+    }
+  }
+  

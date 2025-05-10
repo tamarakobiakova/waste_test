@@ -88,22 +88,6 @@
       pointer-events: auto;
     }
 
-    .arrow {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-
-      svg {
-        width: 14px;
-        height: 14px;
-        fill: #005baa;
-      }
-
-      &:nth-of-type(n+9) svg {
-        opacity: 0.5;
-      }
-    }
-
     .arrow-btn {
       font-size: 1.5rem;
       background: none;
@@ -116,22 +100,6 @@
         opacity: 0.3;
         cursor: default;
       }
-    }
-  }
-
-  .title-space {
-    margin-top: 1.5rem;
-    text-align: center;
-
-    .title {
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-
-    .subtitle {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 1rem;
-      margin-top: 0.3rem;
     }
   }
 

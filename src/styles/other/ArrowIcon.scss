@@ -1,0 +1,15 @@
+.arrow {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 14px;
+      height: 14px;
+      fill: #005baa;
+    }
+
+    &:nth-of-type(n+9) svg {
+      opacity: 0.5;
+    }
+  }

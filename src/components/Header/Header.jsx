@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { getIcon } from "../../utils/constants";
-import { steps as steps } from "../../utils/constants";
+import { steps } from "../../utils/constants";
+import ArrowIcon from "../other/Arrow";
+import TitleHeader from "./TitleHeader/TitleHeader";
 import "../../styles/Header/main.scss";
 
 const Header = () => {
@@ -69,30 +71,12 @@ const Header = () => {
                 <span className="icon">{getIcon(index, currentStepIndex)}</span>
                 <span className="step-text">{step}</span>
               </div>
-              {index !== steps.length - 1 && (
-                <div className="arrow">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="#005baa"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M10.293 3.293a1 1 0 0 1 1.414 0L15 6.586a1 1 0 0 1 0 1.414l-3.293 3.293a1 1 0 0 1-1.414-1.414L12.586 8H1a1 1 0 0 1 0-2h11.586l-2.293-2.293a1 1 0 0 1 0-1.414z" />
-                  </svg>
-                </div>
-              )}
+              {index !== steps.length - 1 && <ArrowIcon />}
             </React.Fragment>
           ))
         )}
       </div>
-
-      <div className="title-space">
-        <div className="title">Choose Your Skip Size</div>
-        <div className="subtitle">
-          Select the skip size that best suits your needs
-        </div>
-      </div>
+      <TitleHeader />
     </div>
   );
 };
